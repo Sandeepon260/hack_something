@@ -7,11 +7,11 @@ export default function Home() {
   const handleUpload = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    const file = e.target.file.files[0];
+    const file = e.target.elements.file.files[0];
     formData.append('help me', file);
     const keys = formData.keys();
     alert(keys.next().value);
-    alert(file.name)
+    alert(file.name);
 
     const res = await fetch('/api/upload', {
       method: 'POST',
